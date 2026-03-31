@@ -21,8 +21,8 @@ window.GALLERY_DATA = {
       ],
       "videos": [
         {
-          "label": "success_obj_-0.12_0.09_n_lift_significant_0_consec_grasp_False_grasped_True (1)",
-          "src": "web/simulation/tablecloth/success_obj_-0.12_0.09_n_lift_significant_0_consec_grasp_False_grasped_True (1).mp4"
+          "label": "tablecloth",
+          "src": "web/simulation/tablecloth/tablecloth.mp4"
         }
       ]
     }
