@@ -1,0 +1,12 @@
+# Start Server Command
+python -m http.server 8000 --directory web
+
+# IP Address
+http://127.0.0.1:8000
+
+# Adding new elements into webpage
+python generate_gallery_data.py
+
+
+# Update When Server is Ready
+Ctrl+Shift+R in the webpage interface
