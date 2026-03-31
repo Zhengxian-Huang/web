@@ -274,7 +274,7 @@ function renderApp() {
     buildImageShowcaseSection(
       "Patch Relative Size",
       "A visual comparison of human scale and patch scale used in the real-world setup.",
-      "web/human_and_patch/mask_patch.jpg",
+      "web/human_and_patch/patch.jpeg",
       "Human and patch size comparison",
       true,
       "Patch physical size: 57 cm x 43 cm"
