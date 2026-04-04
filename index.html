@@ -1,31 +1,486 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adversarial Patch Attack Gallery</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="hero">
-        <p class="eyebrow">Adversarial Patch Results</p>
-        <h1>Simulation and Real-World Attack Gallery</h1>
-        <p class="hero-copy">
-          A single-page showcase of all available attack results under <code>web/web</code>, grouped by simulation and physical deployment.
-        </p>
-      </header>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="TRAP: Hijacking VLA CoT-Reasoning via Adversarial Patches">
+  <meta name="keywords" content=" Behavior Hijacking, Vision-Language-Action Model">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TRAP</title>
 
-      <main id="app" class="content"></main>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FV4ZJ9PVSV"></script>  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FV4ZJ9PVSV');
+  </script>
+
+  <script>
+
+    function updateInteractive() {
+      var task = document.getElementById("interative-menu").value;
+
+      console.log("interactive", task)
+
+      // if task does not contain the string "towel"
+      if (task.indexOf("towel") == -1) {
+        var video = document.getElementById("interactive-video");
+        video.src = "media/videos/" + 
+                    task + 
+                    ".mp4"
+        video.play();
+
+        var html = document.getElementById("interactive-html-1");
+        html.src = "media/interactive/" + 
+                    task + 
+                    ".html"
+
+        // hide the second iframe container
+        var iframeContainer2 = document.getElementById("second-iframe-container");
+        iframeContainer2.style.display = "none";
+      } else {
+        var video = document.getElementById("interactive-video");
+        video.src = "media/videos/hang-towel.mp4"
+        video.play();
+
+        var html1 = document.getElementById("interactive-html-1");
+        html1.src = "media/interactive/hang-towel-1.html"
+
+        // show and set the source for the second iframe
+        var html2 = document.getElementById("interactive-html-2");
+        html2.src = "media/interactive/hang-towel-2.html"
+
+        // show the second iframe container
+        var iframeContainer2 = document.getElementById("second-iframe-container");
+        iframeContainer2.style.display = "block";
+      }
+    }
+
+
+
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body onload="updateInteractive();">
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-fullhd">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">TRAP: Hijacking VLA CoT-Reasoning via<br> Adversarial Patches</h1>
+          <h3 class="title is-4 conference-authors"><a target="_blank"">Submitted to ICML 2026</a></h3>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a target="_blank"">Anonymous Authors</a><sup>1</sup>
+            </span>
+          </div>
+
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <script src="./gallery-data.js"></script>
-    <script src="./app.js"></script>
-  </body>
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+
+
+    <!-- Animation. -->
+    <div class="rows is-centered ">
+      <div class="row is-full-width">
+        <h2 class="title is-3"><span class="dperact">TRAP</span></h2>
+
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <figure class="paper-figure">
+          <img src="media/figures/method.png" class="interpolation-image" />
+          <figcaption class="paper-caption">
+            <strong>Figure 1.</strong> Overview of the TRAP method.
+          </figcaption>
+        </figure>
+      
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3">Stealthiness Enhancement</h2>
+        <h3 class="title is-4 has-text-centered">Knife Hijacking</h3>
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <figure class="paper-figure">
+          <img src="media/figures/figure2.png" class="interpolation-image" style="display: block; width: 80%; height: auto; margin: 0 auto;" />
+          <figcaption class="paper-caption">
+            <strong>Figure 2.</strong> Knife hijacking case of stealthiness enhancement. Figure 2a show the reference image, while the Figure 2b and 2c show the adversarial patch optimized by pgd and dip, respectively.
+          </figcaption>
+        </figure>
+
+        <h4 class="title is-4 has-text-centered">Real World Results: DIP</h4>
+        Take into consideration the layout of different objects, including the orientation of the knife, its position, and the addition or removal of distractors.
+        <div class="columns">
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/knife/dip/trial_5/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/knife/dip/trial_7/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/knife/dip/trial_23/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      
+        <h4 class="title is-4 has-text-centered">Real World Results: PGD</h4>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/knife/pgd/trial_0/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/knife/pgd/trial_1/front_view_1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/knife/pgd/trial_65/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <h3 class="title is-4 has-text-centered">Scissors Hijacking</h3>
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <figure class="paper-figure">
+          <img src="media/figures/figure3.png" class="interpolation-image" style="display: block; width: 80%; height: auto; margin: 0 auto;" />
+          <figcaption class="paper-caption">
+            <strong>Figure 3.</strong> Scissors hijacking case of stealthiness enhancement. Figure 3a show the reference image, while the Figure 3b and 3c show the adversarial patch optimized by pgd and dip, respectively.
+          </figcaption>
+        </figure>
+        <h4 class="title is-4 has-text-centered">Real World Results</h4>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/scissors/dip/trial_1/front_view_1.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;">
+              DIP
+            </p>
+          </div>
+          <div class="column"></div>
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/vgg_success/scissors/pgd/trial_8/front_view_1.mp4" type="video/mp4">
+            </video>
+            <p style="text-align:center;">
+             PGD
+            </p>
+          </div>
+        </div> 
+
+
+
+  </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+
+    <div class="rows">
+      <h2 class="title is-3">High-frequency adversarial artifacts</h2>
+              <!-- Interpolating. -->
+        <div class="content has-text-justified">
+        <!-- <br> -->
+        </div>
+        <figure class="paper-figure">
+          <img src="media/figures/high-frequency.png" class="interpolation-image" style="display: block; width: 80%; height: auto; margin: 0 auto;" />
+          <figcaption class="paper-caption">
+            <strong>Figure 4.</strong> Comparison between the original patch and the dip and PGD-optimized patch, incorporating higher weights of TV loss.
+          </figcaption>
+        </figure>
+
+        <h4 class="title is-4 has-text-centered">Real World Results: DIP</h4>
+        <div class="columns">
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/clip_success/knife/dip/trial_1/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/clip_success/knife/dip/trial_6/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/clip_success/knife/dip/trial_8/front_view_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      
+        <h4 class="title is-4 has-text-centered">Real World Results: PGD</h4>
+
+        <div class="columns">
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/clip_success/knife/pgd/trial_1/front_view_1.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/clip_success/knife/pgd/trial_2/front_view.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="column has-text-centered">
+            <video controls muted autoplay loop width="100%">
+              <source src="media/videos/clip_success/knife/pgd/trial_4/front_view_1.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+  </div>
+
+
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+  <div class="row">
+    <h2 class="title is-3">
+      Comparison with existing published works
+    </h2>
+      <div class="content has-text-justified">
+        <!-- <br> -->
+      </div>
+      <figure class="paper-figure">
+        <img src="media/figures/comparision.png" class="interpolation-image" style="display: block; width: 50%; height: auto; margin: 0 auto;" />
+        <figcaption class="paper-caption">
+          <strong>Figure 5.</strong> The visual comparision between existing published VLA adversarial patch attack works and ours.
+        </figcaption>
+      </figure>
+  </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+  <div class="row">
+    <h2 class="title is-3">
+      Physical Patch Size
+    </h2>
+      <div class="content has-text-justified">
+        <!-- <br> -->
+      </div>
+      <div class="columns is-vcentered">
+        <div class="column">
+          <figure class="paper-figure">
+            <img src="media/figures/physical_size.png" class="interpolation-image" style="display: block; width: auto; height: 320px; margin: 0 auto;" />
+            <figcaption class="paper-caption">
+              <strong>Figure 6.</strong> Patch physical size: 57 cm x 43 cm
+            </figcaption>
+          </figure>
+        </div>
+        <div class="column">
+          <figure class="paper-figure">
+            <img src="media/figures/patch_real_comparision.jpg" class="interpolation-image" style="display: block; width: auto; height: 320px; margin: 0 auto;" />
+            <figcaption class="paper-caption">
+              <strong>Figure 7.</strong> Illustration of the physical patch size compared to a human.
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+  </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-widescreen">
+  <div class="row">
+    <h2 class="title is-3">
+      Aforementioned experimental results
+    </h2>
+      <div class="content has-text-justified">
+        <!-- <br> -->
+      </div>
+      <figure class="paper-figure">
+        <img src="media/figures/comparision.png" class="interpolation-image" style="display: block; width: 50%; height: auto; margin: 0 auto;" />
+        <figcaption class="paper-caption">
+          <strong>Figure 5.</strong> The visual comparision between existing published VLA adversarial patch attack works and ours.
+        </figcaption>
+      </figure>
+  </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-widescreen">
+  <div class="row">
+    <h2 class="title is-3">
+      Aforementioned experimental results
+    </h2>
+      <div class="content has-text-justified">
+        <!-- <br> -->
+      </div>
+      <div class="columns is-vcentered">
+        <div class="column has-text-centered">
+          <figure class="paper-figure">
+            <img src="media/figures/layout2.png" class="interpolation-image" style="display: block; width: auto; height: 320px; margin: 0 auto;" />
+            <figcaption class="paper-caption">
+              Adversarial Patch
+            </figcaption>
+          </figure>
+        </div>
+        <div class="column has-text-centered">
+          <video controls muted autoplay loop style="display: block; width: auto; height: 320px; margin: 0 auto;">
+            <source src="media/videos/before/knife_3.mp4" type="video/mp4">
+          </video>
+          <p style="text-align:center;">
+            Attack Video
+          </p>
+        </div>
+      </div>
+      <div class="columns is-vcentered">
+        <div class="column has-text-centered">
+          <figure class="paper-figure">
+            <img src="media/figures/tree_scissors.png" class="interpolation-image" style="display: block; width: auto; height: 320px; margin: 0 auto;" />
+            <figcaption class="paper-caption">
+              Adversarial Patch
+            </figcaption>
+          </figure>
+        </div>
+        <div class="column has-text-centered">
+          <video controls muted autoplay loop style="display: block; width: auto; height: 320px; margin: 0 auto;">
+            <source src="media/videos/before/scissors.mp4" type="video/mp4">
+          </video>
+          <p style="text-align:center;">
+            Attack Video
+          </p>
+        </div>
+      </div>
+
+      <figure class="paper-figure">
+        <img src="media/figures/abstract_flower.png" class="interpolation-image" style="display: block; width: 50%; height: auto; margin: 0 auto;" />
+        <figcaption class="paper-caption", style="text-align: center;">
+          Adversarial Patch
+        </figcaption>
+      </figure>
+      <div class="columns">
+        <div class="column has-text-centered">
+          <video controls muted autoplay loop width="100%">
+            <source src="media/videos/before/knife_0.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="column has-text-centered">
+          <video controls muted autoplay loop width="100%">
+            <source src="media/videos/before/knife_1.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <div class="column has-text-centered">
+          <video controls muted autoplay loop width="100%">
+            <source src="media/videos/before/knife_2.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <h3 class="title is-4 has-text-centered">Reasoning Task</h3>
+        <div class="column has-text-centered">
+          <video controls muted autoplay loop width="32%">
+            <source src="media/videos/reasoning_task.mp4" type="video/mp4">
+          </video>
+          <p style="text-align:center;">
+            The original instruction is, 'I am thirsty. Please grab something for me to drink.' In a benign scenario, the VLA would reason to pick up a Coke can, while in an adversarial situation, it is hijacked to pick up an orange.
+          </p>
+        </div>
+      <h3 class="title is-4 has-text-centered">Simultation results</h3>
+      <div class="columns is-vcentered">
+        <div class="column has-text-centered">
+          <figure class="paper-figure">
+            <img src="media/figures/simulation_table_cloth.png" class="interpolation-image" style="display: block; width: auto; height: 320px; margin: 0 auto;" />
+            <figcaption class="paper-caption">
+              Adversarial Patch
+            </figcaption>
+          </figure>
+        </div>
+        <div class="column has-text-centered">
+          <video controls muted autoplay loop style="display: block; width: auto; height: 320px; margin: 0 auto;">
+            <source src="media/videos/simulation.mp4" type="video/mp4">
+          </video>
+          <p style="text-align:center;">
+            Attack Video
+          </p>
+        </div>
+      </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content has-text-centered">
+          <p>
+            Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> and <a href="https://peract.github.io/">PerAct</a>. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer> -->
+
+
+</body>
 </html>
